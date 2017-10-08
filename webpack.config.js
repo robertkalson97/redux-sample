@@ -1,14 +1,21 @@
 const path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+
+const dirPath = path.resolve(__dirname, 'dist');
 
 module.exports = {
-	watch: true,
-	devtool: 'inline-source-map',
 	entry : './src/app.js',
 	output : {
-		path : path.resolve(__dirname, 'dist'), 
+		path : dirPath, 
 		filename : 'app.bundle.js'
 	},
+	devtool: 'inline-source-map',
+	devServer: {
+		contentBase: dirPath,
+		port: 3000,
+		hot: true
+    },
 	module: {
 		loaders: [
 		{
@@ -24,6 +31,7 @@ module.exports = {
 		new HtmlWebpackPlugin({
 		  title: 'My App',
 		  template: 'src/index.html'
-		})
+		}),
+		new webpack.HotModuleReplacementPlugin()
 	]
 };
