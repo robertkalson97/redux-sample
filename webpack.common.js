@@ -12,16 +12,6 @@ module.exports = {
         filename: 'app.bundle.js'
     },
     module: {
-        loaders: [
-            {
-                test: /\.html$/,
-                loader: 'html-loader'
-            },
-            {
-                test: /\.png$/,
-                loader: 'file-loader'
-            }
-        ],
         rules: [
             {
                 test: /\.js$/,
