@@ -14,7 +14,6 @@ module.exports = {
     },
     devtool: 'inline-source-map',
     devServer: {
-        contentBase: distPath,
         port: 3000,
         hot: true
     },
