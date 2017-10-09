@@ -1,6 +1,5 @@
 const path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const srcPath = path.resolve(__dirname, 'src');
 const distPath = path.resolve(__dirname, 'dist');
@@ -12,18 +11,16 @@ module.exports = {
         path: distPath,
         filename: 'app.bundle.js'
     },
-    devtool: 'inline-source-map',
-    devServer: {
-        port: 3000,
-        hot: true
-    },
     module: {
         loaders: [
             {
                 test: /\.html$/,
                 loader: 'html-loader'
             },
-            {test: /\.png$/, loader: 'file-loader'}
+            {
+                test: /\.png$/,
+                loader: 'file-loader'
+            }
         ],
         rules: [
             {
@@ -51,7 +48,6 @@ module.exports = {
             files: {
                 "css": ["test.css"]
             }
-        }),
-        new webpack.HotModuleReplacementPlugin()
+        })
     ]
 };

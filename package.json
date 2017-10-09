@@ -4,8 +4,8 @@
   "description": "photo picker",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --inline --hot",
-    "build": "webpack",
+    "start": "webpack-dev-server --hot --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
     "test": "test"
   },
   "keywords": [
@@ -20,6 +20,7 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.17",
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.5",
     "html-loader": "^0.5.1",
@@ -27,7 +28,10 @@
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
     "style-loader": "^0.19.0",
-    "webpack-dev-server": "^2.9.1"
+    "uglifyjs-webpack-plugin": "^0.4.6",
+    "webpack-bundle-analyzer": "^2.9.0",
+    "webpack-dev-server": "^2.9.1",
+    "webpack-merge": "^4.1.0"
   },
   "dependencies": {
     "react": "^16.0.0",
