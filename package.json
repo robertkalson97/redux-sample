@@ -4,7 +4,8 @@
   "description": "photo picker",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --inline --hot",
+    "dev": "webpack-dev-server --inline --hot",
+    "build": "webpack",
     "test": "test"
   },
   "keywords": [
