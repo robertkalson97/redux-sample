@@ -12,17 +12,13 @@ module.exports = {
         filename: 'app.bundle.js'
     },
     module: {
-        loaders: [
-            {
-                test: /\.html$/,
-                loader: 'html-loader'
-            },
-            {
-                test: /\.png$/,
-                loader: 'file-loader'
-            }
-        ],
         rules: [
+            {
+                test: /\.js$/,
+                enforce: "pre",
+                exclude: /node_modules/,
+                loader: "eslint-loader"
+            },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
