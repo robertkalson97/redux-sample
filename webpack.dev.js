@@ -7,7 +7,7 @@ const common = require('./webpack.common.js');
 module.exports = merge(common, {
     devtool: 'inline-source-map',
     devServer: {
-        port: 3000,
+        port: 8080,
         hot: true
     },
     plugins: [
