@@ -40,10 +40,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './index.html',
             favicon: './favicon.ico',
-            title: 'My App',
-            files: {
-                "css": ["test.css"]
-            }
+            title: 'My App'
         })
     ]
 };
