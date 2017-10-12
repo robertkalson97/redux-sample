@@ -1,3 +1,5 @@
+var webpackDevConf = require('./webpack.dev.js');
+
 module.exports = function(config) {
     config.set({
         basePath: '',
@@ -17,11 +19,6 @@ module.exports = function(config) {
 
         reporters: ['nyan'],
 
-        webpackMiddleware: {
-            // webpack-dev-middleware configuration
-            stats: 'errors-only'
-        },
-
         plugins: [
             require("karma-webpack"),
             require("karma-mocha"),
@@ -39,5 +36,7 @@ module.exports = function(config) {
         logLevel: config.LOG_INFO,
         autoWatch: true,
         singleRun: false,
+
+        webpack: webpackDevConf
     });
 };

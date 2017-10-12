@@ -8,7 +8,8 @@ module.exports = merge(common, {
     devtool: 'inline-source-map',
     devServer: {
         port: 8080,
-        hot: true
+        hot: true,
+        stats: 'none',
     },
     plugins: [
         new BundleAnalyzerPlugin({
