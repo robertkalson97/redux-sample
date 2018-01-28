@@ -16,22 +16,24 @@ module.exports = {
             {
                 test: /\.js$/,
                 enforce: "pre",
+                include: srcPath,
                 exclude: /node_modules/,
                 loader: "eslint-loader"
             },
             {
                 test: /\.js$/,
+                include: srcPath,
                 exclude: /node_modules/,
                 loader: "babel-loader"
             },
             {
                 test: /\.less$/,
                 use: [{
-                    loader: "style-loader" // creates style nodes from JS strings
+                    loader: "style-loader"
                 }, {
-                    loader: "css-loader" // translates CSS into CommonJS
+                    loader: "css-loader"
                 }, {
-                    loader: "less-loader" // compiles Less to CSS
+                    loader: "less-loader"
                 }]
             }
         ]
