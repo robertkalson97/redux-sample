@@ -6,7 +6,7 @@ const distPath = path.resolve(__dirname, 'dist');
 
 module.exports = {
     context: srcPath,
-    entry: './app.js',
+    entry: './index.js',
     output: {
         path: distPath,
         filename: 'app.bundle.js'
