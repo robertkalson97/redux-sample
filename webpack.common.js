@@ -1,8 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const srcPath = path.resolve(__dirname, 'src');
 const distPath = path.resolve(__dirname, 'dist');
+
+const extractSass = new ExtractTextPlugin({
+    filename: "[name].[contenthash].css"
+});
 
 module.exports = {
     context: srcPath,
@@ -13,6 +18,32 @@ module.exports = {
     },
     module: {
         rules: [
+            {
+                test: /\.scss$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                url: false,
+                                minimize: true,
+                                sourceMap: true,
+                                modules: true,
+                                importLoaders: 1,
+                                localIdentName: '[name]__[local]___[hash:base64:5]'
+
+                            }
+                        },
+                        {
+                            loader: 'sass-loader',
+                            options: {
+                                sourceMap: true
+                            }
+                        }
+                    ]
+                })
+            },
             {
                 test: /\.js$/,
                 enforce: "pre",
@@ -25,16 +56,6 @@ module.exports = {
                 include: srcPath,
                 exclude: /node_modules/,
                 loader: "babel-loader"
-            },
-            {
-                test: /\.less$/,
-                use: [{
-                    loader: "style-loader"
-                }, {
-                    loader: "css-loader"
-                }, {
-                    loader: "less-loader"
-                }]
             }
         ]
     },
@@ -43,6 +64,7 @@ module.exports = {
             template: './index.html',
             favicon: './favicon.ico',
             title: 'My App'
-        })
+        }),
+        extractSass
     ]
 };

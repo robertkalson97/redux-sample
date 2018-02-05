@@ -2,11 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import CSSModules from 'react-css-modules';
+
+import styles from './App.scss';
 
 import { onClick } from './actions/commonActions';
 
 import { Header } from './components/Header';
 
+@CSSModules(styles)
 class App extends React.Component {
     onClick() {
         this.props.onClick();
@@ -16,7 +20,7 @@ class App extends React.Component {
         return (
             <div onClick={::this.onClick}>
                 <Header />
-                <h1>{`Click me: ${this.props.counter}`}</h1>
+                <h1 styleName="h1">{`Click me: ${this.props.counter}`}</h1>
             </div>
         );
     }
