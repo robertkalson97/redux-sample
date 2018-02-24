@@ -1,4 +1,5 @@
 const path = require('path');
+const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -33,6 +34,17 @@ module.exports = {
                                 importLoaders: 1,
                                 localIdentName: '[name]__[local]___[hash:base64:5]'
 
+                            }
+                        },
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                plugins: [
+                                    autoprefixer({
+                                        browsers:['ie >= 8', 'last 2 version']
+                                    })
+                                ],
+                                sourceMap: true
                             }
                         },
                         {
